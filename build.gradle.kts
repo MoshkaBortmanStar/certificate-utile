@@ -29,7 +29,7 @@ application {
 }
 
 base {
-    archivesBaseName = "create-cert"
+    archivesBaseName = "create-cert-util"
 }
 
 tasks.withType<Jar> {

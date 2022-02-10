@@ -27,16 +27,16 @@ fun main() {
 
         val storeData = StoreData(alias, newPassword, certificateName)
 
-        createCertificate(loadCertificate(path, password.toCharArray()), storeData)
+        createCertificate(loadCertificate(path, password.toCharArray(), storeData.alias), storeData)
     }
 
 }
 
-fun loadCertificate(path: String, password: CharArray?): Certificate {
+fun loadCertificate(path: String, password: CharArray?, alias: String): Certificate {
     val certIs: InputStream = FileInputStream(path)
     val ks = KeyStore.getInstance("jks")
     ks.load(certIs, password)
-    return ks.getCertificate("root-ca")
+    return ks.getCertificate(alias)
 }
 
 
